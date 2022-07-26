@@ -22,7 +22,7 @@ public class ProductController : ControllerBase
         return _productService.GetProducts();
     }
     
-    [HttpGet]
+    [HttpGet("{id}")]
     public Product GetProduct(int id)
     {
         return _productService.Get(id);
@@ -34,18 +34,15 @@ public class ProductController : ControllerBase
         _productService.Create(product);
     }
     
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public void DeleteProduct(int id)
     {
         _productService.Delete(id);
     }
     
     [HttpPut]
-    public void EditUser(Product product)
+    public void EditProduct(Product product)
     {
-        if (ModelState.IsValid)
-        {
-            _productService.Edit(product);
-        }
+        _productService.Edit(product);
     }
 }

@@ -21,7 +21,7 @@ public class UserController : ControllerBase
         return _userService.GetUsers();
     }
     
-    [HttpGet]
+    [HttpGet("{email, password}")]
     public User GetUser(string email, string password)
     {
         return _userService.Get(email, password);
@@ -33,7 +33,7 @@ public class UserController : ControllerBase
         _userService.Create(user);
     }
     
-    [HttpDelete]
+    [HttpDelete("{id}")]
     public void DeleteRecord(int id)
     {
         _userService.Delete(id);
